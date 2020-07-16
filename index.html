@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Data with Progress</title>
+    <!-- load css style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div id="app">
+        <div class="midle-center">
+            <form style="text-align: center;">
+                <div class="box">
+                    <div v-show="!hide">
+                        <textarea v-model="quote" class="input-form" cols="40" rows="3" placeholder="Write your quote today!"></textarea><br>
+                        <input v-model="name" type="text" class="input-form" placeholder="Your name?">
+                    </div>
+                    <div v-show="hide" transition="fade" class="quote">
+                        <blockquote style="max-width: 100%;">
+                            <q>{{ quote }}</q>
+                            <cite>{{ name }}</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                <a href="#" class="btn-progress" @click="progress($event)" data-textOn="Waiting..." data-textFinish="Done!">
+                    {{ title }}
+                    <span class="tz-bar background-horizontal" :style="{width: percentage+'%'}"></span>
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <!-- load Vue JS -->
+    <script src="vue-js/vue.js"></script>
+    <!-- load custom js script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
